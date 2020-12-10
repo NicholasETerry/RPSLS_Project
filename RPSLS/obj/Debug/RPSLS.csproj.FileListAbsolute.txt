@@ -1,0 +1,7 @@
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\bin\Debug\RPSLS.exe.config
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\bin\Debug\RPSLS.exe
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\bin\Debug\RPSLS.pdb
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\obj\Debug\RPSLS.csprojAssemblyReference.cache
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\obj\Debug\RPSLS.csproj.CoreCompileInputs.cache
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\obj\Debug\RPSLS.exe
+C:\Users\Nicholas\Desktop\DevCode\Thulium\RPSLS\RPSLS\obj\Debug\RPSLS.pdb
