@@ -42,7 +42,6 @@ namespace RPSLS
             Console.WriteLine(items.Count());
 
         }
-
     
     }
 }

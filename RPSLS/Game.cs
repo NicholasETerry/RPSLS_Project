@@ -15,21 +15,38 @@ namespace RPSLS
         public Sissors newScissors = new Sissors();
         public Lizard newLizard = new Lizard();
         public Spock newSpock = new Spock();
+        static public List<string> gestureNames = new List<string>();
+
+        Gestures CompeatingGestureOne;
+        Gestures CompeatingGestureTwo;
 
         bool didGestureWin = false;
         bool didGesturesTie = false;
+
+        Human newHuman = new Human();
+        ArtificialIntelligence newAI = new ArtificialIntelligence();
         // MEMBER VARIABLE ( HAVE A )
 
 
         // CONSTRUCTOR ( SPAWNER )
         public Game()
         {
-
             MakeRock();
             MakePaper();
             MakeScissors();
             MakeLizard();
             MakeSpock();
+            Input.Welcome();
+            Input.GameModeCreater();
+            CompairGestures(newSpock, newPaper);
+            CheckForWinner();
+            CompairGestures(newPaper, newSpock);
+            CheckForWinner();
+            CompairGestures(newRock, newPaper);
+            CheckForWinner();
+            CompairGestures(newPaper, newRock);
+            CheckForWinner();
+
             //foreach (var item in newRock.WinningGesture)
             //{
             //    Console.WriteLine(item);
@@ -46,14 +63,47 @@ namespace RPSLS
         // MEMBER METHOD ( CAN DO )
         public void CompairGestures(Gestures firstGesture,Gestures secondGesture) // THIS IS CALLED BY ANOTHER METHOD THAT GOT USERINPUT
         {
+            CompeatingGestureOne = firstGesture;
+            CompeatingGestureTwo = secondGesture;
             // GOES THROUGH WINNINGGESTURE LIST FOR FIRST ITEM TO SEE IF IT WINS AGAINST SECONDGESTURE
             foreach (var item in firstGesture.WinningGesture)
             {
                 if( item == secondGesture)
                 {
+                    didGestureWin = true;
 
                 }
+                else if ( item != secondGesture)
+                {
+                    foreach (var nextItem in firstGesture.LoosingGesture)
+                    {
+                        if(nextItem == secondGesture)
+                        {
+                            didGestureWin = false;
+                        }
+                    }
+                }
+                else
+                {
+                    didGesturesTie = true;
+                }
             }
+        }
+        public void CheckForWinner()
+        {
+            if(didGestureWin == true && didGesturesTie == false)
+            {
+                Console.WriteLine(CompeatingGestureOne.gestureName + " has won against " + CompeatingGestureTwo.gestureName);
+            }
+            else if (didGestureWin == false && didGesturesTie == false)
+            {
+                Console.WriteLine(CompeatingGestureTwo.gestureName + " has won against " + CompeatingGestureOne.gestureName);
+            }
+            else if (didGestureWin == false && didGesturesTie == true)
+            {
+                Console.WriteLine(CompeatingGestureOne.gestureName + " has tied against " + CompeatingGestureTwo.gestureName);
+            }
+            Console.ReadLine();
         }
         public void MakeRock()
         {
@@ -63,6 +113,7 @@ namespace RPSLS
             newRock.CreateGesture(newRock, newSpock, false);
             newRock.DisplayItemsInList(newRock.WinningGesture);
             newRock.DisplayItemsInList(newRock.LoosingGesture);
+            gestureNames.Add(newRock.gestureName);
         }
         public void MakePaper()
         {
@@ -72,6 +123,7 @@ namespace RPSLS
             newPaper.CreateGesture(newPaper, newSpock, true);
             newRock.DisplayItemsInList(newPaper.WinningGesture);
             newRock.DisplayItemsInList(newPaper.LoosingGesture);
+            gestureNames.Add(newPaper.gestureName);
         }
         public void MakeScissors()
         {
@@ -81,6 +133,7 @@ namespace RPSLS
             newScissors.CreateGesture(newScissors, newRock, false);
             newRock.DisplayItemsInList(newScissors.WinningGesture);
             newRock.DisplayItemsInList(newScissors.LoosingGesture);
+            gestureNames.Add(newScissors.gestureName);
         }
         public void MakeLizard()
         {
@@ -90,6 +143,7 @@ namespace RPSLS
             newLizard.CreateGesture(newLizard, newPaper, true);
             newRock.DisplayItemsInList(newLizard.WinningGesture);
             newRock.DisplayItemsInList(newLizard.LoosingGesture);
+            gestureNames.Add(newLizard.gestureName);
         }
         public void MakeSpock()
         {
@@ -99,6 +153,7 @@ namespace RPSLS
             newSpock.CreateGesture(newSpock, newRock, true);
             newRock.DisplayItemsInList(newSpock.WinningGesture);
             newRock.DisplayItemsInList(newSpock.LoosingGesture);
+            gestureNames.Add(newSpock.gestureName);
         }
     }
 }
