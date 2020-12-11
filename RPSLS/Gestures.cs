@@ -16,15 +16,14 @@ namespace RPSLS
         // CONSTRUCTOR ( SPAWNER )
         public Gestures()
         {
-            // GESTURE NEVER GETS CONSTRUCTED
+            // ABSTRACT CLASSES CAN USE CONSTRUCTERS
         }
 
         // MEMBER METHOD ( CAN DO )
 
-        // Gesture needs to be able to be compaired to another gesture to determine which gesture is stronger
         public virtual void CreateGesture(Gestures name,Gestures against, bool isNameStrongerThenAgainst)
         {
-            // JUST CREATE GESTURE. NOTHING ELSE
+            // CREATE GESTURE AND ADD TO LIST
             if(isNameStrongerThenAgainst == true)
             {
                 WinningGesture.Add(against);
@@ -33,6 +32,15 @@ namespace RPSLS
             {
                 LoosingGesture.Add(against);
             }
+        }
+        public virtual void DisplayItemsInList( List<Gestures> items)
+        {
+            foreach (var item in items)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine(items.Count());
+
         }
 
     
