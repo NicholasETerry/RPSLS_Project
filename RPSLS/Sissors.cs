@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class Sissors
+    class Sissors : Gestures
     {
         // MEMBER VARIABLE ( HAVE A )
 
 
         // CONSTRUCTOR ( SPAWNER )
-
+        public Sissors()
+        {
+            gestureName = "Scissors";
+        }
 
         // MEMBER METHOD ( CAN DO )
     }

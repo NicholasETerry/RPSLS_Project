@@ -45,18 +45,17 @@
   <ItemGroup>
     <Compile Include="ArtificialIntelligence.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="Gesture.cs" />
+    <Compile Include="Gestures.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Lizard.cs" />
     <Compile Include="Paper.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerVsAI.cs" />
-    <Compile Include="PlayerVsPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rock.cs" />
     <Compile Include="Sissors.cs" />
     <Compile Include="Spock.cs" />
+    <Compile Include="Input.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class PlayerVsPlayer
+    static class Input // ADDED STATIC !  - -  - - Convension for this class should be called USER INTERFACE
     {
+        // As a developer, i want to account for and handle bad user input, ensuring that any user input is validated and reobtained if necessary
+
         // MEMBER VARIABLE ( HAVE A )
 
 

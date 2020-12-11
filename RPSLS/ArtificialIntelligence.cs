@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class ArtificialIntelligence
+    class ArtificialIntelligence : Player
     {
         // MEMBER VARIABLE ( HAVE A )
 
