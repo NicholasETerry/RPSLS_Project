@@ -8,10 +8,9 @@ namespace RPSLS
 {
     static class Input // ADDED STATIC !  - -  - - Convention for this class should be called USER INTERFACE
     {
-        static int gestureIndex;
-        static Gestures PlayerOneGesture;
-        static Gestures PlayerTwoGesture;
-        static string gameModeSelected;
+        public static int gestureIndex;
+        static Human newHuman;
+        static ArtificialIntelligence newAI;
         // As a developer, i want to account for and handle bad user input, ensuring that any user input is validated and reobtained if necessary
 
         // MEMBER VARIABLE ( HAVE A )
@@ -43,18 +42,16 @@ namespace RPSLS
             if(Console.ReadKey(true).Key == ConsoleKey.D1)
             {
                 Console.WriteLine("You have selected to play against the computer. Good Luck !\n");
-                Console.ReadLine();
-                PlayerVsAIGestureSelection();
+                HumanVsAIGestureSelection();
             }
             else
             {
                 Console.WriteLine("You will be playing against another human. Be nice to each other ! \n");
-                Console.ReadLine();
-                PlayerVsPlayerGestureSelection();
+                HumanVsHumanGestureSelection();
 
             }
         }
-        public static void PlayerVsPlayerGestureSelection() // takes user input - 1 to find correct index number for gesture.
+        public static void HumanVsHumanGestureSelection() // takes user input - 1 to find correct index number for gesture.
         {
             int i = 1;
             Console.WriteLine("Choose your best Gesture !\n" +
@@ -67,10 +64,22 @@ namespace RPSLS
             }
             gestureIndex = Convert.ToInt32(Console.ReadLine());
             Console.ReadLine();
+            newHuman.HumanGamePlay();
         }
-        public static void PlayerVsAIGestureSelection()
+        public static void HumanVsAIGestureSelection()
         {
+            int i = 1;
+            Console.WriteLine("Choose your best Gesture !\n" +
+                "These are your choices.\n");
+            foreach (var item in Game.gestureNames)
+            {
 
+                Console.WriteLine("For " + item + ": Press " + i);
+                i++;
+            }
+            gestureIndex = Convert.ToInt32(Console.ReadLine());
+            Console.ReadLine();
+            newAI.AIGamePlay();
         }
     }
 }

@@ -15,5 +15,9 @@ namespace RPSLS
 
 
         // MEMBER METHOD ( CAN DO )
+        public void AIGamePlay()
+        {
+
+        }
     }
 }

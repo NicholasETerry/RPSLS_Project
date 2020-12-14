@@ -12,8 +12,15 @@ namespace RPSLS
 
 
         // CONSTRUCTOR ( SPAWNER )
+        public Human()
+        {
+        int realIndexValue = Input.gestureIndex - 1;
 
+        }
+        public void HumanGamePlay()
+        {
 
+        }
         // MEMBER METHOD ( CAN DO )
     }
 }

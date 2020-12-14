@@ -38,15 +38,6 @@ namespace RPSLS
             SpockPopulateGestureListWL();
             Input.Welcome();
             Input.GameModeCreater();
-            CompairGestures(newSpock, newPaper);
-            CheckForWinner();
-            CompairGestures(newPaper, newSpock);
-            CheckForWinner();
-            CompairGestures(newRock, newPaper);
-            CheckForWinner();
-            CompairGestures(newPaper, newRock);
-            CheckForWinner();
-
             //foreach (var item in newRock.WinningGesture)
             //{
             //    Console.WriteLine(item);
