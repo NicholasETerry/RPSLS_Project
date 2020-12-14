@@ -9,9 +9,9 @@ namespace RPSLS
     static class Input // ADDED STATIC !  - -  - - Convention for this class should be called USER INTERFACE
     {
         public static bool checkValue = false;
-        public static int gestureIndex;
         static Human newHuman;
         static ArtificialIntelligence newAI;
+        public static string gestureIndex;
         // As a developer, i want to account for and handle bad user input, ensuring that any user input is validated and reobtained if necessary
 
         // MEMBER VARIABLE ( HAVE A )
@@ -37,13 +37,13 @@ namespace RPSLS
             while(checkValue == false)
             {
                 int readKey = Convert.ToInt32(Console.ReadKey(true).Key);
-                if ( readKey == 50)
+                if ( readKey == 49)
                 {
                     Console.WriteLine("You have selected to play against the computer. Good Luck !\n");
                     checkValue = true;
                     HumanVsAIGestureSelection();
                 }
-                else if ( readKey == 51)
+                else if ( readKey == 50)
                 {
                     Console.WriteLine("You will be playing against another human. Be nice to each other ! \n");
                     checkValue = true;
@@ -60,16 +60,15 @@ namespace RPSLS
         public static void HumanVsHumanGestureSelection() // takes user input - 1 to find correct index number for gesture.
         {
             int i = 1;
-            Console.WriteLine("Choose your best Gesture !\n" +
+            Console.WriteLine(" Player One: Choose your best Gesture !\n" +
                 "These are your choices.\n");
             foreach (var item in Game.gestureNames)
             {
 
-                Console.WriteLine("For " + item + ": Press " + i);
+                Console.WriteLine("For " + item.gestureName + ": Press " + i);
                 i++;
             }
-            gestureIndex = Convert.ToInt32(Console.ReadLine());
-            Console.ReadLine();
+            gestureIndex = (Console.ReadKey(true).KeyChar).ToString();
             newHuman = new Human();
         }
         public static void HumanVsAIGestureSelection()
@@ -80,11 +79,10 @@ namespace RPSLS
             foreach (var item in Game.gestureNames)
             {
 
-                Console.WriteLine("For " + item + ": Press " + i);
+                Console.WriteLine("For " + item.gestureName + ": Press " + i);
                 i++;
             }
             gestureIndex = Convert.ToInt32(Console.ReadLine());
-            Console.ReadLine();
             newAI = new ArtificialIntelligence();
         }
     }

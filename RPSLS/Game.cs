@@ -15,7 +15,8 @@ namespace RPSLS
         public Sissors newScissor = new Sissors();
         public Lizard newLizard = new Lizard();
         public Spock newSpock = new Spock();
-        static public List<string> gestureNames = new List<string>();
+        public static List<Gestures> gestureNames = new List<Gestures>();
+        public int gameScore;
         // MEMBER VARIABLE ( HAVE A )
 
 
@@ -39,7 +40,7 @@ namespace RPSLS
             newRock.CreateGesture(newRock, newSpock, false);
             newRock.DisplayItemsInList(newRock.WinningGesture);
             newRock.DisplayItemsInList(newRock.LoosingGesture);
-            gestureNames.Add(newRock.gestureName);
+            gestureNames.Add(newRock);
         }
         public void PaperPopulateGestureListWL()
         {
@@ -49,7 +50,7 @@ namespace RPSLS
             newPaper.CreateGesture(newPaper, newSpock, true);
             newRock.DisplayItemsInList(newPaper.WinningGesture);
             newRock.DisplayItemsInList(newPaper.LoosingGesture);
-            gestureNames.Add(newPaper.gestureName);
+            gestureNames.Add(newPaper);
         }
         public void ScissorsPopulateGestureListWL()
         {
@@ -59,7 +60,7 @@ namespace RPSLS
             newScissor.CreateGesture(newScissor, newRock, false);
             newRock.DisplayItemsInList(newScissor.WinningGesture);
             newRock.DisplayItemsInList(newScissor.LoosingGesture);
-            gestureNames.Add(newScissor.gestureName);
+            gestureNames.Add(newScissor);
         }
         public void LizardPopulateGestureListWL()
         {
@@ -69,7 +70,7 @@ namespace RPSLS
             newLizard.CreateGesture(newLizard, newPaper, true);
             newRock.DisplayItemsInList(newLizard.WinningGesture);
             newRock.DisplayItemsInList(newLizard.LoosingGesture);
-            gestureNames.Add(newLizard.gestureName);
+            gestureNames.Add(newLizard);
         }
         public void SpockPopulateGestureListWL()
         {
@@ -79,7 +80,7 @@ namespace RPSLS
             newSpock.CreateGesture(newSpock, newRock, true);
             newRock.DisplayItemsInList(newSpock.WinningGesture);
             newRock.DisplayItemsInList(newSpock.LoosingGesture);
-            gestureNames.Add(newSpock.gestureName);
+            gestureNames.Add(newSpock);
         }
     }
 }
