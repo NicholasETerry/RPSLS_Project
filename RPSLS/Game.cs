@@ -16,7 +16,8 @@ namespace RPSLS
         public Lizard newLizard = new Lizard();
         public Spock newSpock = new Spock();
         public static List<Gestures> gestureNames = new List<Gestures>();
-        public int gameScore;
+        public static int playerOneGameScore;
+        public static int playerTwoGameScore;
         // MEMBER VARIABLE ( HAVE A )
 
 

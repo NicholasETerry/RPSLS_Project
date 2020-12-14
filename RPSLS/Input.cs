@@ -82,7 +82,7 @@ namespace RPSLS
                 Console.WriteLine("For " + item.gestureName + ": Press " + i);
                 i++;
             }
-            gestureIndex = Convert.ToInt32(Console.ReadLine());
+            gestureIndex = (Console.ReadKey(true).KeyChar).ToString();
             newAI = new ArtificialIntelligence();
         }
     }

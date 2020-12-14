@@ -20,7 +20,7 @@ namespace RPSLS
             // both gestures face off to see who wins
             // game will end when a player has won 2 matches
 
-            PlayerOneRealIndexValue = Input.gestureIndex - 1;
+            PlayerOneRealIndexValue = (Convert.ToInt32(Input.gestureIndex)) - 1;
             HumanGamePlayGetSecondPlayer();
             CompairGestures();
         }
@@ -35,14 +35,33 @@ namespace RPSLS
                 Console.WriteLine("For " + item + ": Press " + i);
                 i++;
             }
-            PlayerTwoRealIndexValue = Convert.ToInt32(Console.ReadLine()) - 1 ;
+            Input.gestureIndex = (Console.ReadKey(true).KeyChar).ToString();
+            PlayerTwoRealIndexValue = (Convert.ToInt32(Input.gestureIndex)) - 1 ;
         }
         public void CompairGestures()
         {
             foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].WinningGesture)
             {
-                Console.WriteLine(item);
+                if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                {
+                    Console.WriteLine("player one wins");  // for testing
+                    Console.ReadLine();
+                }
             }
+            foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].LoosingGesture)
+            {
+                if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                {
+                    Console.WriteLine("player two wins");  // for testing
+                    Console.ReadLine();
+                }
+                else
+                {
+                    Console.WriteLine("The game was a tie");  // for testing
+                    Console.ReadLine();
+                }
+            }
+
         } 
         // MEMBER METHOD ( CAN DO )
     }
