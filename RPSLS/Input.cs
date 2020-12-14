@@ -8,8 +8,9 @@ namespace RPSLS
 {
     static class Input // ADDED STATIC !  - -  - - Convention for this class should be called USER INTERFACE
     {
-
-        static string selectedGesture;
+        static int gestureIndex;
+        static Gestures PlayerOneGesture;
+        static Gestures PlayerTwoGesture;
         static string gameModeSelected;
         // As a developer, i want to account for and handle bad user input, ensuring that any user input is validated and reobtained if necessary
 
@@ -53,7 +54,7 @@ namespace RPSLS
 
             }
         }
-        public static void PlayerVsPlayerGestureSelection()
+        public static void PlayerVsPlayerGestureSelection() // takes user input - 1 to find correct index number for gesture.
         {
             int i = 1;
             Console.WriteLine("Choose your best Gesture !\n" +
@@ -64,6 +65,7 @@ namespace RPSLS
                 Console.WriteLine("For " + item + ": Press " + i);
                 i++;
             }
+            gestureIndex = Convert.ToInt32(Console.ReadLine());
             Console.ReadLine();
         }
         public static void PlayerVsAIGestureSelection()

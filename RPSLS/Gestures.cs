@@ -10,6 +10,7 @@ namespace RPSLS
     {
         // MEMBER VARIABLE ( HAVE A )
         // if Gesture does not appear in either list. Assume both gesutres are equal
+
         public List<Gestures> WinningGesture = new List<Gestures>();
         public List<Gestures> LoosingGesture = new List<Gestures>();
         public string gestureName;
@@ -21,6 +22,7 @@ namespace RPSLS
 
         // MEMBER METHOD ( CAN DO )
 
+        
         public virtual void CreateGesture(Gestures name,Gestures against, bool isNameStrongerThenAgainst)
         {
             // CREATE GESTURE AND ADD TO LIST
