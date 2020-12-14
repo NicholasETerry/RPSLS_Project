@@ -15,7 +15,9 @@ namespace RPSLS
         public Human()
         {
         int realIndexValue = Input.gestureIndex - 1;
-
+            HumanGamePlay();
+            Console.WriteLine("'Did this work");
+            Console.ReadLine();
         }
         public void HumanGamePlay()
         {

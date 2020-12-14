@@ -16,15 +16,6 @@ namespace RPSLS
         public Lizard newLizard = new Lizard();
         public Spock newSpock = new Spock();
         static public List<string> gestureNames = new List<string>();
-
-        Gestures CompeatingGestureOne;
-        Gestures CompeatingGestureTwo;
-
-        bool didGestureWin = false;
-        bool didGesturesTie = false;
-
-        Human newHuman = new Human();
-        ArtificialIntelligence newAI = new ArtificialIntelligence();
         // MEMBER VARIABLE ( HAVE A )
 
 
@@ -38,64 +29,8 @@ namespace RPSLS
             SpockPopulateGestureListWL();
             Input.Welcome();
             Input.GameModeCreater();
-            //foreach (var item in newRock.WinningGesture)
-            //{
-            //    Console.WriteLine(item);
-            //    Console.WriteLine("Rock wins against these");
-            //    Console.ReadLine();
-            //}
-            //foreach (var item in newRock.LoosingGesture)
-            //{
-            //    Console.WriteLine(item);
-            //    Console.WriteLine("Rock looses against these");
-            //    Console.ReadLine();
-            //}
         }
         // MEMBER METHOD ( CAN DO )
-        public void CompairGestures(Gestures firstGesture,Gestures secondGesture) // THIS IS CALLED BY ANOTHER METHOD THAT GOT USERINPUT
-        {
-            CompeatingGestureOne = firstGesture;
-            CompeatingGestureTwo = secondGesture;
-            // GOES THROUGH WINNINGGESTURE LIST FOR FIRST ITEM TO SEE IF IT WINS AGAINST SECONDGESTURE
-            foreach (var item in firstGesture.WinningGesture)
-            {
-                if( item == secondGesture)
-                {
-                    didGestureWin = true;
-
-                }
-                else if ( item != secondGesture)
-                {
-                    foreach (var nextItem in firstGesture.LoosingGesture)
-                    {
-                        if(nextItem == secondGesture)
-                        {
-                            didGestureWin = false;
-                        }
-                    }
-                }
-                else
-                {
-                    didGesturesTie = true;
-                }
-            }
-        }
-        public void CheckForWinner()
-        {
-            if(didGestureWin == true && didGesturesTie == false)
-            {
-                Console.WriteLine(CompeatingGestureOne.gestureName + " has won against " + CompeatingGestureTwo.gestureName);
-            }
-            else if (didGestureWin == false && didGesturesTie == false)
-            {
-                Console.WriteLine(CompeatingGestureTwo.gestureName + " has won against " + CompeatingGestureOne.gestureName);
-            }
-            else if (didGestureWin == false && didGesturesTie == true)
-            {
-                Console.WriteLine(CompeatingGestureOne.gestureName + " has tied against " + CompeatingGestureTwo.gestureName);
-            }
-            Console.ReadLine();
-        }
         public void RockPopulateGestureListWL()
         {
             newRock.CreateGesture(newRock, newScissor, true);
