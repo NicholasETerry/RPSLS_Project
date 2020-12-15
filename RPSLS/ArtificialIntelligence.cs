@@ -8,6 +8,7 @@ namespace RPSLS
 {
     class ArtificialIntelligence : Player
     {
+        Random newRad = new Random();
         // MEMBER VARIABLE ( HAVE A )
 
 

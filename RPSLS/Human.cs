@@ -23,6 +23,7 @@ namespace RPSLS
             PlayerOneRealIndexValue = (Convert.ToInt32(Input.gestureIndex)) - 1;
             HumanGamePlayGetSecondPlayer();
             CompairGestures();
+            EndOfGame();
         }
         public void HumanGamePlayGetSecondPlayer()
         {
@@ -40,29 +41,64 @@ namespace RPSLS
         }
         public void CompairGestures()
         {
-            foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].WinningGesture)
+            while(Game.playerOneGameScore < 2 &&  Game.playerTwoGameScore < 2)
             {
-                if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                bool didWin = false;
+                foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].WinningGesture)
                 {
-                    Console.WriteLine("player one wins");  // for testing
-                    Console.ReadLine();
-                }
+                    if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                    {
+                        Console.WriteLine("player one wins");  // for testing
+                        Game.playerOneGameScore++;
+                        didWin = true;
+                    }
             }
-            foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].LoosingGesture)
-            {
-                if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                foreach (var item in Game.gestureNames[PlayerOneRealIndexValue].LoosingGesture)
                 {
-                    Console.WriteLine("player two wins");  // for testing
-                    Console.ReadLine();
+                    if (item == Game.gestureNames[PlayerTwoRealIndexValue])
+                    {
+                        Console.WriteLine("player two wins");  // for testing
+                        Game.playerTwoGameScore++;
+                        didWin = true;
+                    }
+
                 }
-                else
+                if (didWin == false)
                 {
-                    Console.WriteLine("The game was a tie");  // for testing
-                    Console.ReadLine();
+                    Console.WriteLine("The game was ties");
                 }
+                if(Game.playerOneGameScore ==2 || Game.playerTwoGameScore == 2) // THIS KIND OF ELEMINATES THE NEED FOR THE WHILE LOOP
+                {
+                    EndOfGame();
+                }
+                Console.WriteLine("player one score : " + Game.playerOneGameScore);
+                Console.WriteLine("player two score : " + Game.playerTwoGameScore);
+                Console.ReadLine();
+                Input.HumanVsHumanGestureSelection();
+                HumanGamePlayGetSecondPlayer();
             }
 
         } 
+        public void EndOfGame()
+        {
+            if(Game.playerOneGameScore == 2)
+            {
+                Console.WriteLine("Congrats ! Player One Wins.");
+            }
+            else if (Game.playerTwoGameScore == 2)
+            {
+                Console.WriteLine(" Comgrats ! Player Two Wins.");
+            }
+            Console.WriteLine("Would you like to play again ?\n" +
+                "Press 1 to play again:\n" +
+                "Press any other key to exit:");
+            int choiceEntered = Convert.ToInt32(Console.ReadKey(true).Key);
+            if(choiceEntered == 49)
+            {
+                Game newGame = new Game();
+
+            }
+        }
         // MEMBER METHOD ( CAN DO )
     }
 }

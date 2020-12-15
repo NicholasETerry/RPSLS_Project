@@ -39,8 +39,6 @@ namespace RPSLS
             newRock.CreateGesture(newRock, newPaper, false);
             newRock.CreateGesture(newRock, newLizard, true);
             newRock.CreateGesture(newRock, newSpock, false);
-            newRock.DisplayItemsInList(newRock.WinningGesture);
-            newRock.DisplayItemsInList(newRock.LoosingGesture);
             gestureNames.Add(newRock);
         }
         public void PaperPopulateGestureListWL()
@@ -49,8 +47,6 @@ namespace RPSLS
             newPaper.CreateGesture(newPaper, newRock, true);
             newPaper.CreateGesture(newPaper, newLizard, false);
             newPaper.CreateGesture(newPaper, newSpock, true);
-            newRock.DisplayItemsInList(newPaper.WinningGesture);
-            newRock.DisplayItemsInList(newPaper.LoosingGesture);
             gestureNames.Add(newPaper);
         }
         public void ScissorsPopulateGestureListWL()
@@ -59,8 +55,6 @@ namespace RPSLS
             newScissor.CreateGesture(newScissor, newSpock, false);
             newScissor.CreateGesture(newScissor, newLizard, true);
             newScissor.CreateGesture(newScissor, newRock, false);
-            newRock.DisplayItemsInList(newScissor.WinningGesture);
-            newRock.DisplayItemsInList(newScissor.LoosingGesture);
             gestureNames.Add(newScissor);
         }
         public void LizardPopulateGestureListWL()
@@ -69,8 +63,6 @@ namespace RPSLS
             newLizard.CreateGesture(newLizard, newSpock, true);
             newLizard.CreateGesture(newLizard, newScissor, false);
             newLizard.CreateGesture(newLizard, newPaper, true);
-            newRock.DisplayItemsInList(newLizard.WinningGesture);
-            newRock.DisplayItemsInList(newLizard.LoosingGesture);
             gestureNames.Add(newLizard);
         }
         public void SpockPopulateGestureListWL()
@@ -79,8 +71,6 @@ namespace RPSLS
             newSpock.CreateGesture(newSpock, newScissor, true);
             newSpock.CreateGesture(newSpock, newPaper, false);
             newSpock.CreateGesture(newSpock, newRock, true);
-            newRock.DisplayItemsInList(newSpock.WinningGesture);
-            newRock.DisplayItemsInList(newSpock.LoosingGesture);
             gestureNames.Add(newSpock);
         }
     }
